@@ -11,17 +11,26 @@ addons:
       - texlive-fonts-extra
       - texlive-latex-extra
       - texlive-math-extra
+
+branches:
+  except:
+    - /^v\d{4}\-\d{2}\-\d{2}(-\S*)?$/
+
+before_script:
+  - export TZ=America/Chicago
 script:
   - mkdir build
   - xelatex -output-directory=build resume.tex
 before_deploy:
-  - export TZ=America/Chicago
   - git config --local user.name "Chris McKnight"
   - git config --local user.email "cmckni3@gmail.com"
-  - git tag "$(date +'%Y-%m-%d')-$TRAVIS_COMMIT" $TRAVIS_COMMIT
+  - export TAG_DATE="v$(date +'%Y-%m-%d')"
+  - export TAG="$TAG_DATE-$(git log --format=%h -1 $TRAVIS_COMMIT)"
+  - git tag "$TAG" "$TRAVIS_COMMIT"
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
+  name: "$TAG_DATE"
   file:
     - ./build/resume.pdf
   skip_cleanup: true
