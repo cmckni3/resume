@@ -1,13 +1,14 @@
 addons:
   apt:
     packages:
-      - texlive-fonts-recommended
+      - lmodern
+      - texlive-lang-english
       - texlive-latex-base
+      - latex-xcolor
+      - texlive-xetex
+      - texlive-fonts-recommended
       - texlive-latex-extra
       - texlive-math-extra
-      - texlive-pstricks
-      - texlive-xcolor
-      - texlive-xetex
 script:
   - mkdir build
   - xelatex -output-directory=build resume.tex
