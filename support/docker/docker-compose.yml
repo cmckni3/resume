@@ -3,5 +3,8 @@ version: '2.1'
 services:
   resume:
     build:
-      dockerfile: support/docker/Dockerfile
-      context: ../..
+      dockerfile: ./support/docker/Dockerfile
+      context: ../../
+    command: xelatex
+    volumes:
+      - ../..:/data

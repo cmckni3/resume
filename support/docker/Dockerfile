@@ -1,14 +1,24 @@
-FROM ubuntu:16.04
+FROM ubuntu:14.04
 
 RUN apt-get update -qq && \
-    apt-get install -y -qq \
+    apt-get install -y -qq --no-install-suggests --no-install-recommends \
+      git \
+      ca-certificates \
+      lmodern \
+      texlive-lang-english \
       texlive-latex-base \
-      texlive-math-extra \
+      latex-xcolor \
       texlive-xetex \
-      texlive-fonts-recommended && \
+      texlive-fonts-recommended \
+      texlive-latex-extra \
+      texlive-math-extra && \
+    apt-get autoclean && apt-get --purge --yes autoremove && \
     rm -rf /var/lib/apt/lists/*
 
-COPY . /usr/src
-RUN mkdir /usr/src/build
+COPY ./support/docker/entrypoint.sh /entrypoint.sh
+COPY . /data
 
-CMD xelatex -output-directory=/usr/src/build /usr/src/resume.tex
+WORKDIR /data
+VOLUME ["/data"]
+
+ENTRYPOINT ["/entrypoint.sh"]
