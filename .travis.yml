@@ -13,15 +13,15 @@ script:
   - mkdir build
   - xelatex -output-directory=build resume.tex
 before_deploy:
-  - export TZ=America/Chicago LC_ALL=en_US
+  - export TZ=America/Chicago
   - git config --local user.name "Chris McKnight"
   - git config --local user.email "cmckni3@gmail.com"
-  - git tag "$(date +'%Y-%m-%d')-$TRAVIS_BUILD_NUMBER" $TRAVIS_COMMIT
+  - git tag "$(date +'%Y-%m-%d')-$TRAVIS_COMMIT" $TRAVIS_COMMIT
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
   file:
-  - ./build/resume.pdf
+    - ./build/resume.pdf
   skip_cleanup: true
   on:
     branch: master
