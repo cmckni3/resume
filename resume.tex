@@ -18,7 +18,7 @@
 %     Configuration
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Themes: Awesome-CV
-\documentclass[]{awesome-cv}
+\documentclass[letterpaper]{awesome-cv}
 \usepackage{textcomp}
 %%% Override a directory location for fonts(default: 'fonts/')
 \fontdir[fonts/]
@@ -39,148 +39,167 @@
 %\definecolor{graytext}{HTML}{414141}
 %\definecolor{lighttext}{HTML}{414141}
 
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{true}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+%-------------------------------------
+% PERSONAL INFORMATION
+%-------------------------------------
+\name{Christopher H. McKnight}{}
+\address{Franklin, TN}
+\email{cmckni3@gmail.com}
+\github{cmckni3}
+
 %%% Override a separator for social informations in header(default: ' | ')
 %\headersocialsep[\quad\textbar\quad]
-    \begin{document}
+\begin{document}
 
 % Print the footer with 3 arguments(<left>, <center>, <right>)
 % Leave any of these blank if they are not needed
 \makecvfooter
-  {\today}
-  {}
-  {\thepage}
+{\today}
+{}
+{\thepage}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     Profile
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{center}
-	\headerfirstnamestyle{Christopher H. McKnight} \\
-	\vspace{2mm}
-	{\faEnvelope\ cmckni3@gmail.com} | {\faMapMarker\ Franklin, TN} | {\faLink\ github.com/cmckni3}
-\end{center}
+\makecvheader[C]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     Education
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \cvsection{Education}
 \begin{cventries}
 	\cventry
-  {Bachelor of Science, Computer Science}
-	{Louisiana State University}
-	{Baton Rouge, LA}
-  {December 2011}
-  {Mathematics Minor \& Second Discipline}
+    {Bachelor of Science, Computer Science}
+    {Louisiana State University}
+    {Baton Rouge, LA}
+    {December 2011}
+    {Mathematics Minor \& Second Discipline}
 \end{cventries}
 
-\vspace{-2mm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     Experience
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \cvsection{Experience}
 \begin{cventries}
 	\cventry
-	{Developer II}
-	{Franklin American Mortgage Company}
-	{Franklin, TN}
-	{October 2016 – Present}
-	{\begin{cvitems}
-		\item {Created new API endpoints for PHP application.}
-		\item {Developed image editing application in Angular}
-    \item {Created Docker images for dashboards}
-    \item {Deployed dashboards to Kubernetes cluster}
-    \item {Implemented SAML SSO in Java application for Wordpress Single Sign On}
-		\end{cvitems}}
+    {Developer II}
+    {Franklin American Mortgage Company}
+    {Franklin, TN}
+    {October 2016 – Present}
+    {\begin{cvitems}
+      \item {Created new API endpoints for PHP application.}
+      \item {Developed image editing application in Angular}
+      \item {Created Docker images for dashboards}
+      \item {Deployed dashboards to Kubernetes cluster}
+      \item {Implemented SAML SSO in Java application for Wordpress Single Sign On}
+      \end{cvitems}}
+
 	\cventry
-	{Senior Software Developer}
-	{Immense Networks}
-	{Baton Rouge, LA}
-	{October 2011 - September 2016}
-	{\begin{cvitems}
-		\item {Managed PHP applications using WHM/cPanel.}
-		\item {Wrote custom PHP applications using symfony 1.4, propel, jQuery, and MySQL.}
-    \item {Developed and deployed Ruby on Rails applications using nginx and Passenger Enterprise.}
-    \item {Developed, maintained, and deployed node.js web applications using nginx.}
-    \item {Created user interfaces in web applications using HTML, JavasScript, Bootstrap, and knockout.js.}
-    \item {Created a conference registration application on node.js using Coffeescript, MongoDB, and PayPal. Created the user interface using HTML, JavaScript, Bootstrap, and knockout.js.}
-    \item {Created a Ruby on Rails application for employees and managers to bill equipment time. The application computed employee salary, wages, and overtime. Finally, the application helped find discrepancies between employee and equipment time. The Ruby on Rails backend used MySQL for application data storage and accessed employee data through SQL Server. The application was later migrated to use Vista by Viewpoint (SQL Server 2014) instead of NexGen (SQL Server 2005).}
-    \item {Utilized CocoaPods for managing 3rd Party iOS dependencies.}
-    \item {Redesigned the Contact Mover iOS application to copy contacts to be user friendly and reach a larger customer base.}
-    \item {Created the La. Contractor iOS application to search for licensed contractors in the state of Louisiana. Designed the contractor search JSON API as well.}
-    \item {Developed an iOS application to track tools using the Linea Pro barcode scanner. The application submits GPS coordinates to a node.js API when unloaded. Utilized RestKit and AFNetworking for API requests. Later switched to using Mantle and AFNetworking for object mapping and caching. Deployed the application using MobileIron MDM.}
-    \item {Designed, developed, and deployed custom enterprise iOS applications.}
-    \item {Created the PHP implementation of Macaroons for decentralized authorization.}
-    \item {Converted a PHP symfony 1.4 application to use Macaroons for authorization.}
-    \item {Designed and implemented JSON APIs for multiple Ruby on Rails, PHP, and node.js applications.}
-    \end{cvitems}}
-\cventry
-	{Master Residential Student Technician}
-	{Louisiana State University Residential Life}
-	{Baton Rouge, LA}
-	{February 2009 - October 2011}
-	{\begin{cvitems}
-    \item {Ensured computer labs are fully operational including printers.}
-    \item {Assisted in training new technicians.}
-    \item {Created a PHP application to manage Residential Life television images.}
-    \item {Created a PHP time tracking application.}
-    \item {Created Norton Ghost images for Windows XP, Windows 7, and Macintosh workstations.}
-    \item {Completed equipment transfers and inventory.}
-		\end{cvitems}}
+    {Senior Software Developer}
+    {Immense Networks}
+    {Baton Rouge, LA}
+    {October 2011 - September 2016}
+    {\begin{cvitems}
+      \item {Managed PHP applications using WHM/cPanel.}
+      \item {Wrote custom PHP applications using symfony 1.4, propel, jQuery, and MySQL.}
+      \item {Developed and deployed Ruby on Rails applications using nginx and Passenger Enterprise.}
+      \item {Developed, maintained, and deployed node.js web applications using nginx.}
+      \item {Created user interfaces in web applications using HTML, JavasScript, Bootstrap, and knockout.js.}
+      \item {Created a conference registration application on node.js using Coffeescript, MongoDB, and PayPal. Created the user interface using HTML, JavaScript, Bootstrap, and knockout.js.}
+      \item {Created a Ruby on Rails application for employees and managers to bill equipment time. The application computed employee salary, wages, and overtime. Finally, the application helped find discrepancies between employee and equipment time. The Ruby on Rails backend used MySQL for application data storage and accessed employee data through SQL Server. The application was later migrated to use Vista by Viewpoint (SQL Server 2014) instead of NexGen (SQL Server 2005).}
+      \item {Utilized CocoaPods for managing 3rd Party iOS dependencies.}
+      \item {Redesigned the Contact Mover iOS application to copy contacts to be user friendly and reach a larger customer base.}
+      \item {Created the La. Contractor iOS application to search for licensed contractors in the state of Louisiana. Designed the contractor search JSON API as well.}
+      \item {Developed an iOS application to track tools using the Linea Pro barcode scanner. The application submits GPS coordinates to a node.js API when unloaded. Utilized RestKit and AFNetworking for API requests. Later switched to using Mantle and AFNetworking for object mapping and caching. Deployed the application using MobileIron MDM.}
+      \item {Designed, developed, and deployed custom enterprise iOS applications.}
+      \item {Created the PHP implementation of Macaroons for decentralized authorization.}
+      \item {Converted a PHP symfony 1.4 application to use Macaroons for authorization.}
+      \item {Designed and implemented JSON APIs for multiple Ruby on Rails, PHP, and node.js applications.}
+      \end{cvitems}}
+
+  \cventry
+    {Master Residential Student Technician}
+    {Louisiana State University Residential Life}
+    {Baton Rouge, LA}
+    {February 2009 - October 2011}
+    {\begin{cvitems}
+      \item {Ensured computer labs are fully operational including printers.}
+      \item {Assisted in training new technicians.}
+      \item {Created a PHP application to manage Residential Life television images.}
+      \item {Created a PHP time tracking application.}
+      \item {Created Norton Ghost images for Windows XP, Windows 7, and Macintosh workstations.}
+      \item {Completed equipment transfers and inventory.}
+      \end{cvitems}}
 \end{cventries}
 \pagebreak
 \cvsection{Skills}
-\begin{cventries}
-	\cventry
-	{}
-	{\def\arraystretch{1.15}{\begin{tabular}{ l l }
-		Programming Languages:  & {\skill{ JavaScript, Objective-C, Ruby, TypeScript, PHP}} \\
-		Frameworks:  & {\skill{ Angular, express.js, iOS, koa, Ruby on Rails, symfony}} \\
-		Libraries/Technologies:  & {\skill{ AJAX, jQuery, JSON, knockout.js, Macaroons, ngrx, Observable, Promise, RxJS, window.fetch}} \\
-		Databases:  & {\skill{ MongoDB, MySQL, SQL Server}} \\
-		Tools:  & {\skill{ Git, babel, webpack}} \\
-		DevOps:  & {\skill{ apache, Docker, Kubernetes, Linux, nginx, Passenger, Passenger Enterprise}} \\
-		\end{tabular}}}
-	{}
-	{}
-	{}
-\end{cventries}
+\begin{cvskills}
+	\cvskill
+    {Programming Languages}
+    {JavaScript, Objective-C, Ruby, TypeScript, PHP}
+
+  \cvskill
+    {Frameworks}
+    {Angular, express.js, iOS, koa, Ruby on Rails, symfony}
+
+  \cvskill
+    {Libraries/Technologies}
+    {AJAX, jQuery, JSON, knockout.js, Macaroons, ngrx, Observable, Promise, RxJS, window.fetch}
+
+  \cvskill
+    {Databases}
+    {MongoDB, MySQL, SQL Server}
+
+  \cvskill
+    {Tools}
+    {Git, babel, webpack}
+
+  \cvskill
+    {DevOps}
+    {apache, Docker, Kubernetes, Linux, nginx, Passenger, Passenger Enterprise}
+\end{cvskills}
 \cvsection{Presentations}
 \begin{cventries}
   \cventry
-  {Fundamentals of Git}
-  {Refresh Baton Rouge Meetup}
-  {Baton Rouge, LA}
-  {March 26, 2015}
-  {
-    \begin{cvitems}
-      \item {Explained how to start a project using Git.}
-      \item {Discussed committing, pushing, and merging in depth with a demo.}
-    \end{cvitems}
-  }
+    {Fundamentals of Git}
+    {Refresh Baton Rouge Meetup}
+    {Baton Rouge, LA}
+    {March 26, 2015}
+    {
+      \begin{cvitems}
+        \item {Explained how to start a project using Git.}
+        \item {Discussed committing, pushing, and merging in depth with a demo.}
+      \end{cvitems}
+    }
+
   \cventry
-  {Angular Deep Dive}
-  {Franklin American Mortgage Company \& All Things Angular}
-  {Franklin, TN}
-  {April 21, 2017 \& April 25, 2017}
-  {
-    \begin{cvitems}
-      \item {Explained directives, components, services, and templates.}
-      \item {Described container and presentation components.}
-      \item {Demonstrated best practices including one way data flow.}
-      \item {Concluded with an Angular application walkthrough.}
-    \end{cvitems}
-  }
+    {Angular Deep Dive}
+    {Franklin American Mortgage Company \& All Things Angular}
+    {Franklin, TN}
+    {April 21, 2017 \& April 25, 2017}
+    {
+      \begin{cvitems}
+        \item {Explained directives, components, services, and templates.}
+        \item {Described container and presentation components.}
+        \item {Demonstrated best practices including one way data flow.}
+        \item {Concluded with an Angular application walkthrough.}
+      \end{cvitems}
+    }
+
   \cventry
-  {AngularJS to Angular Migration}
-  {All Things Angular}
-  {Franklin, TN}
-  {August 29, 2017}
-  {
-    \begin{cvitems}
-      \item {Showed a few methods to migrate an application from AngularJS to Angular.}
-    \end{cvitems}
-  }
+    {AngularJS to Angular Migration}
+    {All Things Angular}
+    {Franklin, TN}
+    {August 29, 2017}
+    {
+      \begin{cvitems}
+        \item {Showed a few methods to migrate an application from AngularJS to Angular.}
+      \end{cvitems}
+    }
 \end{cventries}
 
-\vspace{-7mm}
-
-
-\
 \end{document}

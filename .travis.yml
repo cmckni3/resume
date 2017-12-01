@@ -2,11 +2,13 @@ addons:
   apt:
     packages:
       - lmodern
+      - pgf
       - texlive-lang-english
       - texlive-latex-base
       - latex-xcolor
       - texlive-xetex
       - texlive-fonts-recommended
+      - texlive-fonts-extra
       - texlive-latex-extra
       - texlive-math-extra
 script:
