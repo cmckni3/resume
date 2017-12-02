@@ -24,13 +24,13 @@ script:
 before_deploy:
   - git config --local user.name "Chris McKnight"
   - git config --local user.email "cmckni3@gmail.com"
-  - export TAG_DATE="v$(date +'%Y-%m-%d')"
-  - export TAG="$TAG_DATE-$(git log --format=%h -1 $TRAVIS_COMMIT)"
+  - export RELEASE_TITLE="$(date +'%Y-%m')"
+  - export TAG="v$(date +'%Y-%m-%d')-$(git log --format=%h -1 $TRAVIS_COMMIT)"
   - git tag "$TAG" "$TRAVIS_COMMIT"
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
-  name: "$TAG_DATE"
+  name: "$RELEASE_TITLE"
   file:
     - ./build/resume.pdf
   skip_cleanup: true
