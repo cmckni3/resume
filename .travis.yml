@@ -20,7 +20,7 @@ before_script:
   - export TZ=America/Chicago
 script:
   - mkdir build
-  - xelatex -output-directory=build resume.tex
+  - xelatex -output-directory=build Christopher-McKnight-resume.tex
 before_deploy:
   - git config --local user.name "Chris McKnight"
   - git config --local user.email "cmckni3@gmail.com"
@@ -32,7 +32,7 @@ deploy:
   api_key: $GITHUB_TOKEN
   name: "$RELEASE_TITLE"
   file:
-    - ./build/resume.pdf
+    - ./build/Christopher-McKnight-resume.pdf
   skip_cleanup: true
   on:
     branch: master
