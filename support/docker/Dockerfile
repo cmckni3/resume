@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM registry.hub.docker.com/library/ubuntu:14.04
 
 ENV TZ=America/Chicago
 
