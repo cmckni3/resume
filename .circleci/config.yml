@@ -16,6 +16,9 @@ jobs:
       - run:
           name: Build and run with docker-compose
           command: docker-compose -f "support/docker/docker-compose.yml" up -d --build
+      - run:
+          name: list build directory
+          command: ls build
 workflows:
   version: 2
   build:
