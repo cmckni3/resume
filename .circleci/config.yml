@@ -1,16 +1,21 @@
 version: 2
 jobs:
   build:
-    docker:
-      - image: debian:stretch
     steps:
       - checkout
       - run:
           name: Create build directory
           command: mkdir build
       - run:
-          name: Print the Current Time
-          command: docker build -t
+          name: Install Docker Compose
+          command: |
+              curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+              chmod +x ~/docker-compose
+              sudo mv ~/docker-compose /usr/local/bin/docker-compose
+      - setup_remote_docker
+      - run:
+          name: Build and run with docker-compose
+          command: docker-compose up -d --build
 workflows:
   version: 2
   build:
