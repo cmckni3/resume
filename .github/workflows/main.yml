@@ -12,7 +12,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - uses: actions/docker@master
+    - uses: actions/docker/cli@master
     - name: build docker image
       run: docker build -t cmckni3/resume support/docker
     - name: run docker container
