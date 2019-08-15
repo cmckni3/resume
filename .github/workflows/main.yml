@@ -16,4 +16,4 @@ jobs:
     - name: build docker image
       run: docker build -f support/docker/Dockerfile -t cmckni3/resume .
     - name: run docker container
-      run: docker run -v .:/data cmckni3/resume xelatex
+      run: docker run -v $(pwd):/data cmckni3/resume xelatex
