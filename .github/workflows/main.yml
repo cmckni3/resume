@@ -1,6 +1,9 @@
 name: CI
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
@@ -9,24 +12,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    # TODO: Convert to use Docker
-    - name: Install latex
-      run: |
-        sudo apt-get update -qq && \
-        sudo apt-get install -y -qq --no-install-suggests --no-install-recommends \
-          git \
-          ca-certificates \
-          lmodern \
-          pgf \
-          texlive-lang-english \
-          texlive-latex-base \
-          latex-xcolor \
-          texlive-xetex \
-          texlive-fonts-recommended \
-          texlive-fonts-extra \
-          texlive-latex-extra \
-          texlive-math-extra
-    - name: Create directory
-      run: mkdir build
-    - name: Build resume
-      run: xelatex -output-directory=build Christopher-McKnight-resume.tex
+    - uses: actions/docker@master
+    - name: build docker image
+      run: docker build -t cmckni3/resume support/docker
+    - name: run docker container
+      run: docker run -v .:/data cmckni3/resume xelatex
