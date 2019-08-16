@@ -13,11 +13,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - uses: actions/docker/cli@master
-    - uses: scarhand/actions-ruby@master
-    - name: install dpl
-      run: gem install dpl
-    - name: dpl info
-      run: dpl --provider=releases
     - name: build docker image
       run: docker build -f support/docker/Dockerfile -t cmckni3/resume .
     - name: run docker container
