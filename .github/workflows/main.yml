@@ -7,13 +7,11 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    
+
     steps:
-    - uses: actions/checkout@v1
-    - uses: actions/docker/cli@master
-    - name: build docker image
-      run: docker build -f support/docker/Dockerfile -t cmckni3/resume .
-    - name: run docker container
-      run: docker run -v $(pwd):/data cmckni3/resume xelatex
+      - uses: actions/checkout@v1
+      - name: build docker image
+        run: docker build -f support/docker/Dockerfile -t cmckni3/resume .
+      - name: run docker container
+        run: docker run -v $(pwd):/data cmckni3/resume xelatex
