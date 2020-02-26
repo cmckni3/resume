@@ -1,10 +1,11 @@
-version: '2.1'
+version: '3.5'
 
 services:
-  resume:
+  build:
     build:
       dockerfile: ./support/docker/Dockerfile
       context: ./
+    image: cmckni3/resume
     command: xelatex
     volumes:
       - .:/data
