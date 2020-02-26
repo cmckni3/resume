@@ -1,3 +1,8 @@
+language: node_js
+node_js:
+  - 12
+os: linux
+
 addons:
   apt:
     packages:
@@ -29,10 +34,10 @@ before_deploy:
   - git tag "$TAG" "$TRAVIS_COMMIT"
 deploy:
   provider: releases
-  api_key: $GITHUB_TOKEN
-  name: "$RELEASE_TITLE"
+  token: $GITHUB_TOKEN
+  edge: true
+  name: '$RELEASE_TITLE'
   file:
     - ./build/Christopher-McKnight-resume.pdf
-  skip_cleanup: true
   on:
     branch: master
