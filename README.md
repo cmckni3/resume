@@ -1,4 +1,4 @@
-## Résumé
+# Résumé
 
 My résumé redux using LaTeX
 
